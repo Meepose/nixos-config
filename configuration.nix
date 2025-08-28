@@ -83,7 +83,8 @@
     #media-session.enable = true;
   };
 
-  #Attempting to set up modem
+  #enabling tailscale
+  services.tailscale.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -125,6 +126,12 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
+
+  #adding nvim
+  programs.neovim = {
+  enable = true;
+  defaultEditor = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
