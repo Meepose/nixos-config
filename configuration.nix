@@ -18,6 +18,9 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  #fix for bluray drive
+  boot.kernelModules = [ "sg" ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -50,9 +53,10 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
+  # Enable the KDE Plasma Desktop Environment + kde connect.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  programs.kdeconnect.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -78,6 +82,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  #Attempting to set up modem
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -112,6 +118,10 @@
   discord-ptb
   fastfetch
   git
+  modemmanager
+  modem-manager-gui
+  makemkv
+  abcde
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
